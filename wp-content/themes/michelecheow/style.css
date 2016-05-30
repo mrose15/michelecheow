@@ -908,8 +908,7 @@ Site Header
 .site-header .wrap {
 	border-bottom: 1px solid #222;
 	overflow: hidden;
-	padding: 32px 0;
-	padding: 3.2rem 0;
+	padding: 1em 0;
 }
 
 .mpp-home .site-header .wrap {
@@ -921,8 +920,6 @@ Site Header
 
 .title-area {
 	float: left;
-	padding: 12px 0;
-	padding: 1.2rem 0;
 	width: 35%;
 }
 
@@ -932,12 +929,9 @@ Site Header
 
 .site-title {
 	font-family: 'Lato', sans-serif;
-	font-size: 24px;
-	font-size: 2.4rem;
 	font-weight: 300;
 	line-height: 1;
-	margin: 0 0 8px;
-	margin: 0 0 0.8rem;
+	margin:.8em 0 0 0;
 	text-transform: lowercase;
 }
 
@@ -947,12 +941,21 @@ Site Header
 	text-decoration: none;
 }
 
-.site-title a::before {
+.site-title a{
+	background: url(/wp-content/themes/michelecheow/images/logo_527.png) no-repeat;
+    width: 100%;
+    height: 36px;
+    background-size: 300px;
+    text-indent: -9999px;
+    display: inline-block;
+}
+
+/*.site-title a::before {
 	background-color: #222;
 	border-radius: 50%;
 	color: #fff;
-	content: "M"; /* Used to display the letter in the header logo */
-	cursor: pointer;
+	content: "M";*/ /* Used to display the letter in the header logo */
+	/*cursor: pointer;
 	display: inline-block;
 	font-family: 'Merriweather', serif;
 	height: 48px;
@@ -968,17 +971,18 @@ Site Header
 
 .site-title a:hover::before {
 	background-color: #27b4b2;
-}
+}*/
 
 .site-description {
-	color: #999;
-	font-size: 16px;
-	font-size: 1.6rem;
+	color: #888;
+	font-size: .8em;
 	font-weight: 300;
-	height: 0;
 	line-height: 1;
-	margin-bottom: 0;
+	/*margin: .5em 0 0 0;*/
+	font-family: 'Lato', sans-serif;
+    display: inline-block;
 	text-indent: -9999px;
+	margin-bottom: 0;
 }
 
 /* Full width header, no widgets */
@@ -986,9 +990,9 @@ Site Header
 .header-full-width .title-area,
 .header-full-width .site-title {
 	width: 100%;
+	margin-bottom: 0;
 }
 
-.header-image .site-description,
 .header-image .site-title a {
 	display: block;
 	text-indent: -9999px;
@@ -998,7 +1002,7 @@ Site Header
 
 .header-image .site-title a {
 	float: left;
-	min-height: 90px;
+	/*min-height: 90px;*/
 	width: 100%;
 }
 
@@ -1220,10 +1224,13 @@ Content Area
 #services {
 	background-color: #222;
 	color: #fff;
-	font-size: 20px;
-	font-size: 2rem;
-	padding: 60px 0 36px;
-	padding: 6rem 0 3.6rem;
+	font-size: 2em;
+	padding: 3em 0 2em;
+}
+
+#about {
+	font-size: 1em;
+	background-color: #0E2D65;
 }
 
 #about .entry-meta a:hover,
@@ -1998,6 +2005,15 @@ Media Queries
 	.site-header .widget-area,
 	.site-title {
 		text-align: center;
+	}
+
+	.site-title{
+		width: 100%;
+	} 
+
+	.site-title a{
+		margin: 0 auto;
+		width: 300px;
 	}
 
 	.genesis-nav-menu a,
