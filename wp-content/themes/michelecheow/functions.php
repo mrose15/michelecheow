@@ -130,6 +130,13 @@ function mpp_remove_comment_form_allowed_tags( $defaults ) {
 
 }
 
+//* Change the footer text
+add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
+function sp_footer_creds_filter( $creds ) {
+	$creds = '[footer_copyright] &middot; <a href="http://michelecheow.com">Michele Cheow</a> &middot; Built with &#9829;';
+	return $creds;
+}
+
 //* Register widget areas
 genesis_register_sidebar( array(
 	'id'          => 'home-about',
