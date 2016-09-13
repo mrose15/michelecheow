@@ -12,7 +12,7 @@
  */
 
 /**
- * 
+ *
  */
 abstract class Genesis_Customizer_Base {
 
@@ -20,7 +20,7 @@ abstract class Genesis_Customizer_Base {
 	 * Define defaults, call the `register` method, add css to head.
 	 */
 	public function __construct() {
-		
+
 		//** Register new customizer elements
 		if ( method_exists( $this, 'register' ) ) {
 			add_action( 'customize_register', array( $this, 'register'), 15 );
@@ -32,25 +32,25 @@ abstract class Genesis_Customizer_Base {
 		if ( method_exists( $this, 'scripts' ) ) {
 			add_action( 'customize_preview_init', 'scripts' );
 		}
-		
+
 	}
 
 	protected function get_field_name( $name ) {
 		return sprintf( '%s[%s]', $this->settings_field, $name );
 	}
-	
+
 	protected function get_field_id( $id ) {
 		return sprintf( '%s[%s]', $this->settings_field, $id );
 	}
-	
+
 	protected function get_field_value( $key ) {
-		return genesis_get_option( $key, $this->settings_field );		
+		return genesis_get_option( $key, $this->settings_field );
 	}
-	
+
 }
 
 /**
- * 
+ *
  */
 class Genesis_Customizer extends Genesis_Customizer_Base {
 
@@ -73,11 +73,11 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 
 		$this->comments( $wp_customize );
 		$this->archives( $wp_customize );
-		
+
 	}
 
 	private function color_scheme( $wp_customize ) {
-		
+
 		//** Color Selector
 		if ( ! current_theme_supports( 'genesis-style-selector' ) )
 			return;
@@ -86,7 +86,7 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 		$wp_customize->add_section(
 			'genesis_color_scheme',
 			array(
-				'title'    => 'Color Scheme',
+				'title'    => __( 'Color Scheme', 'genesis' ),
 				'priority' => 150,
 			)
 		);
@@ -102,25 +102,25 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 		$wp_customize->add_control(
 			'genesis_color_scheme',
 			array(
-				'label'    => 'Select Color Style',
+				'label'    => __( 'Select Color Style', 'genesis'),
 				'section'  => 'genesis_color_scheme',
 				'settings' => $this->get_field_name( 'style_selection' ),
 				'type'     => 'select',
 				'choices'  => array_merge(
-					array( '' => 'Default' ),
+					array( '' => __( 'Default', 'genesis' ) ),
 					array_shift( get_theme_support( 'genesis-style-selector' ) )
 				),
 			)
 		);
-		
+
 	}
-	
+
 	private function layout( $wp_customize ) {
-		
+
 		$wp_customize->add_section(
 			'genesis_layout',
 			array(
-				'title'    => 'Site Layout',
+				'title'    => __( 'Site Layout', 'genesis' ),
 				'priority' => 150,
 			)
 		);
@@ -136,14 +136,14 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 		$wp_customize->add_control(
 			'genesis_layout',
 			array(
-				'label'    => 'Select Default Layout',
+				'label'    => __( 'Select Default Layout', 'genesis' ),
 				'section'  => 'genesis_layout',
 				'settings' => $this->get_field_name( 'site_layout' ),
 				'type'     => 'select',
 				'choices'  => genesis_get_layouts_for_customizer(),
 			)
 		);
-		
+
 	}
 
 	private function breadcrumbs( $wp_customize ) {
@@ -151,20 +151,20 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 		$wp_customize->add_section(
 			'genesis_breadcrumbs',
 			array(
-				'title'    => 'Breadcrumbs',
+				'title'    => __( 'Breadcrumbs', 'genesis' ),
 				'priority' => 150,
 			)
 		);
 
 		$settings = array(
-			'breadcrumb_home'       => 'Homepage',
-			'breadcrumb_front_page' => 'Front Page',
-			'breadcrumb_posts_page' => 'Posts Page',
-			'breadcrumb_single'     => 'Single',
-			'breadcrumb_page'       => 'Page',
-			'breadcrumb_archive'    => 'Archive',
-			'breadcrumb_404'        => '404',
-			'breadcrumb_attachment' => 'Attachment/Media',
+			'breadcrumb_home'       => __( 'Homepage', 'genesis' ),
+			'breadcrumb_front_page' => __( 'Front Page', 'genesis' ),
+			'breadcrumb_posts_page' => __( 'Posts Page', 'genesis' ),
+			'breadcrumb_single'     => __( 'Single', 'genesis' ),
+			'breadcrumb_page'       => __( 'Page', 'genesis' ),
+			'breadcrumb_archive'    => __( 'Archive', 'genesis' ),
+			'breadcrumb_404'        => __( '404', 'genesis' ),
+			'breadcrumb_attachment' => __( 'Attachment/Media', 'genesis' ),
 		);
 
 		$priority = 1;
@@ -231,7 +231,7 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 					'settings' => $this->get_field_name( $setting ),
 					'type'     => 'checkbox',
 				)
-			);		
+			);
 
 		}
 
@@ -350,9 +350,8 @@ class Genesis_Customizer extends Genesis_Customizer_Base {
 
 add_action( 'init', 'genesis_customizer_init' );
 /**
- * 
+ *
  */
 function genesis_customizer_init() {
 	new Genesis_Customizer;
 }
-
