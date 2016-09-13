@@ -29,5 +29,5 @@
 define( 'EA_DIR', dirname( __FILE__ ) );
  
 // General
-include_once( EA_DIR . '/inc/general.php' );
+include_once( EA_DIR . '/inc/portfolio-cpt.php' );
 
