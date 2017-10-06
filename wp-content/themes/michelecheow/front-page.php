@@ -12,6 +12,7 @@ function mpp_enqueue_scripts() {
 	if ( is_active_sidebar( 'home-about' ) || is_active_sidebar( 'home-portfolio' ) || is_active_sidebar( 'home-services' ) || is_active_sidebar( 'home-blog' ) ) {
 		wp_enqueue_script( 'scrollTo', get_stylesheet_directory_uri() . '/js/jquery.scrollTo.min.js', array( 'jquery' ), '1.4.5-beta', true );
 		wp_enqueue_script( 'localScroll', get_stylesheet_directory_uri() . '/js/jquery.localScroll.min.js', array( 'scrollTo' ), '1.2.8b', true );
+		wp_enqueue_script( 'smooth-scroll', '//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js?ver=1.0.0', array(), '3', true );
 		wp_enqueue_script( 'scroll', get_stylesheet_directory_uri() . '/js/scroll.js', array( 'localScroll' ), '', true );
 	}
 }
@@ -55,22 +56,22 @@ function mpp_body_class( $classes ) {
 function mpp_homepage_widgets() {
 
 	genesis_widget_area( 'home-about', array(
-		'before' => '<div id="about"><div class="wrap">',
+		'before' => '<span id="about"></span><div id="about"><div class="wrap">',
 		'after'  => '</div></div>',
 	) );
 
 	genesis_widget_area( 'home-portfolio', array(
-		'before' => '<div id="portfolio"><div class="wrap">',
+		'before' => '<span id="portfolio"></span><div id="portfolio"><div class="wrap">',
 		'after'  => '</div></div>',
 	) );
 
 	genesis_widget_area( 'home-services', array(
-		'before' => '<div id="services"><div class="wrap">',
+		'before' => '<span id="services"></span><div id="services"><div class="wrap">',
 		'after'  => '</div></div>',
 	) );
 
 	genesis_widget_area( 'home-blog', array(
-		'before' => '<div id="blog"><div class="wrap">',
+		'before' => '<span id="blog"></span><div id="blog"><div class="wrap">',
 		'after'  => '</div></div>',
 	) );
 

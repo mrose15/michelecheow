@@ -34,8 +34,8 @@ function mpp_enqueue_responsive_script() {
 }
 
 //* Add new image sizes
-add_image_size( 'blog', 340, 140, TRUE );
-add_image_size( 'portfolio', 340, 230, TRUE );
+add_image_size( 'blog', 340, 140, true );
+add_image_size( 'portfolio', 340, 230, true );
 
 //* Add support for custom header
 add_theme_support( 'custom-header', array(
@@ -128,6 +128,11 @@ function mpp_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 
+}
+
+add_action( 'genesis_before_footer', 'before_footer_widgets' );
+function before_footer_widgets() {
+	echo '<span id="footer"></span>';
 }
 
 //* Change the footer text
