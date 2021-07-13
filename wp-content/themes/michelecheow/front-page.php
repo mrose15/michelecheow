@@ -9,7 +9,7 @@ add_action( 'wp_enqueue_scripts', 'mpp_enqueue_scripts' );
  */
 function mpp_enqueue_scripts() {
 
-	if ( is_active_sidebar( 'home-about' ) || is_active_sidebar( 'home-portfolio' ) || is_active_sidebar( 'home-services' ) || is_active_sidebar( 'home-blog' ) ) {
+	if ( is_active_sidebar( 'home-about' ) || is_active_sidebar( 'home-portfolio' ) || is_active_sidebar( 'home-projects' ) || is_active_sidebar( 'home-blog' ) ) {
 		wp_enqueue_script( 'scrollTo', get_stylesheet_directory_uri() . '/js/jquery.scrollTo.min.js', array( 'jquery' ), '1.4.5-beta', true );
 		wp_enqueue_script( 'localScroll', get_stylesheet_directory_uri() . '/js/jquery.localScroll.min.js', array( 'scrollTo' ), '1.2.8b', true );
 		wp_enqueue_script( 'smooth-scroll', '//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js?ver=1.0.0', array(), '3', true );
@@ -24,7 +24,7 @@ add_action( 'genesis_meta', 'mpp_home_genesis_meta' );
  */
 function mpp_home_genesis_meta() {
 
-	if ( is_active_sidebar( 'home-about' ) || is_active_sidebar( 'home-portfolio' ) || is_active_sidebar( 'home-services' ) || is_active_sidebar( 'home-blog' ) ) {
+	if ( is_active_sidebar( 'home-about' ) || is_active_sidebar( 'home-portfolio' ) || is_active_sidebar( 'home-projects' ) || is_active_sidebar( 'home-blog' ) ) {
 
 		// Force content-sidebar layout setting
 		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
@@ -65,8 +65,8 @@ function mpp_homepage_widgets() {
 		'after'  => '</div></div>',
 	) );
 
-	genesis_widget_area( 'home-services', array(
-		'before' => '<span id="services"></span><div id="services"><div class="wrap">',
+	genesis_widget_area( 'home-projects', array(
+		'before' => '<span id="projects"></span><div id="projects"><div class="wrap">',
 		'after'  => '</div></div>',
 	) );
 

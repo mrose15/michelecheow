@@ -138,7 +138,7 @@ function before_footer_widgets() {
 //* Change the footer text
 add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
 function sp_footer_creds_filter( $creds ) {
-	$creds = '[footer_copyright] &middot; <a href="http://michelecheow.com">Michele Cheow</a> &middot; Built with &#9829;';
+	$creds = '[footer_copyright] &middot; <a href="http://michelecheow.com">Michele Cheow</a> &middot; Built with &#10084;';
 	return $creds;
 }
 
@@ -154,9 +154,9 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the portfolio section of the homepage.','mpp' ),
 ) );
 genesis_register_sidebar( array(
-	'id'          => 'home-services',
-	'name'        => __( 'Home - Services','mpp' ),
-	'description' => __( 'This is the Services section of the homepage.','mpp' ),
+	'id'          => 'home-projects',
+	'name'        => __( 'Home - Projects','mpp' ),
+	'description' => __( 'This is the Projects section of the homepage.','mpp' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'home-blog',
